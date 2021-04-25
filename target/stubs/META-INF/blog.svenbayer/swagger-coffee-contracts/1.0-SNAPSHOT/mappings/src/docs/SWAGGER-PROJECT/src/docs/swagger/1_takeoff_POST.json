@@ -1,0 +1,49 @@
+{
+  "id" : "6b3aad67-3d6a-466f-96a0-7bdbea3387a0",
+  "request" : {
+    "urlPath" : "/coffee-rocket-service/v1.0/takeoff",
+    "method" : "POST",
+    "headers" : {
+      "X-Request-ID" : {
+        "matches" : ".+"
+      },
+      "Content-Type" : {
+        "matches" : "application/json.*"
+      }
+    },
+    "queryParameters" : {
+      "withWormhole" : {
+        "matches" : "(true|false)"
+      },
+      "viaHyperLoop" : {
+        "matches" : "(true|false)"
+      }
+    },
+    "bodyPatterns" : [ {
+      "matchesJsonPath" : "$[?(@.['weight'] == 1.1)]"
+    }, {
+      "matchesJsonPath" : "$[?(@.['rocketName'] == 'rocketName')]"
+    }, {
+      "matchesJsonPath" : "$.['beanonauts'][*][?(@.['name'] == 'name')]"
+    }, {
+      "matchesJsonPath" : "$.['beanonauts'][*][?(@.['age'] == 1)]"
+    }, {
+      "matchesJsonPath" : "$[?(@.['fuel'] == 1.1)]"
+    }, {
+      "matchesJsonPath" : "$.['itinerary'][?(@.['departure'] == 'departure')]"
+    }, {
+      "matchesJsonPath" : "$.['itinerary'][?(@.['destination'] == 'destination')]"
+    } ]
+  },
+  "response" : {
+    "status" : 201,
+    "body" : "{\"asteroids\":[{\"shape\":\"ROUND\",\"name\":\"name\",\"speed\":1}],\"size\":1,\"name\":\"name\"}",
+    "headers" : {
+      "X-RateLimit-Limit" : "1",
+      "Content-Type" : "application/json"
+    },
+    "transformers" : [ "response-template" ]
+  },
+  "uuid" : "6b3aad67-3d6a-466f-96a0-7bdbea3387a0",
+  "priority" : 1
+}
